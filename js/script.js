@@ -11,11 +11,9 @@ let countPickTeam2 = 0;
 let count = 0;
 
 function banTeam1 (){
+    if (count <5) {
     wrapperChampions.addEventListener('click', (e) => {
-        if (countBanTeam1 > 5){
-            return;
-        }
-         else if (countBanTeam1 < 5){
+        if(countBanTeam1 < 5){ 
             if (e.target && e.target.tagName == "BUTTON") {
                 for (let i = 0; i < wrapperChampions.childElementCount; i++){
                         if(wrapperChampions.children[i] == e.target){
@@ -23,34 +21,63 @@ function banTeam1 (){
                         }
                 }
                 countBanTeam1++;
-                return banTeam1();
-             } 
-         }
+                count++;
+             }
+             return banTeam1();
+            }
     }, {once: true});
-}
+}  
 
-function banTeam2 (){
-    wrapperChampions.addEventListener('click', (e) => {
-        if (countBanTeam2 > 5){
-            return;
-        }
-         else if (countBanTeam2 < 5){
-            if (e.target && e.target.tagName == "BUTTON") {
-                for (let i = 0; i < wrapperChampions.childElementCount; i++){
+else if (count >= 5 && count < 10){
+        wrapperChampions.addEventListener('click', (e) => {
+            if (countBanTeam2 < 5){
+                if (e.target && e.target.tagName == "BUTTON") {
+                    for (let j = 0; j < wrapperChampions.childElementCount; j++){
+                            if(wrapperChampions.children[j] == e.target){
+                                wrapperBansTeamTwo.children[countBanTeam2].classList.add(wrapperChampions.children[j].classList[1]);
+                            }
+                    }
+                    countBanTeam2++;
+                    count++;
+                    return banTeam1();
+                 } 
+             }
+        }, {once: true});
+    }
+
+   else if (count > 0){
+        wrapperChampions.addEventListener('click', (e) => {
+            if (countPickTeam1 < 5) {
+                if (e.target && e.target.tagName == "BUTTON") {
+                    for (let i = 0; i < wrapperChampions.childElementCount; i++){
                         if(wrapperChampions.children[i] == e.target){
-                            wrapperBansTeamTwo.children[countBanTeam2].classList.add(wrapperChampions.children[i].classList[1]);
+                            wrapperPicksTeamOne.children[countPickTeam1].classList.add(wrapperChampions.children[i].classList[1]);
                         }
+                    }
+                    countPickTeam1++;
+                    count++;
+                    console.log(count);
                 }
-                countBanTeam2++;
-                console.log(countBanTeam2);
-                return banTeam2();
-             } 
-         }
-    }, {once: true});
+            }
+        }, {once: true});
+    }
+
+/*     else if (count > 100){
+        wrapperChampions.addEventListener('click', (e) => {
+            if (countPickTeam2 < 5) {
+                if (e.target && e.target.tagName == "BUTTON") {
+                    for (let i = 0; i < wrapperChampions.childElementCount; i++){
+                        if(wrapperChampions.children[i] == e.target){
+                            wrapperPicksTeamTwo.children[countPickTeam2].classList.add(wrapperChampions.children[i].classList[1]);
+                        }
+                    }
+                    countPickTeam2++;
+                    count++;
+                    console.log(count);
+                }
+            }
+        }, {once: true});
+    } */
 }
 
 banTeam1();
-
-function banning (){
-    
-}
