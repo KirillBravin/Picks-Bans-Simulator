@@ -45,6 +45,7 @@ body{
     height: 10rem;
     border: 1px solid black;
     box-sizing: border-box;
+    width: 106px;
 }
 
 .container-main {
