@@ -97,6 +97,10 @@ body{
   filter: grayscale(100%);
 }
 
+.disabled {
+    pointer-events: none;
+}
+
 .Ahri {
     background-image: url(/img/Ahri.jpg);
     background-size:100% 100%;
